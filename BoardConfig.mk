@@ -53,6 +53,7 @@ TARGET_SPECIFIC_HEADER_PATH += device/samsung/kminilte/include
 # Kernel
 TARGET_KERNEL_CONFIG := kminilte_00_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/kminilte
+#BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
 # CMHW
 BOARD_HARDWARE_CLASS := device/samsung/kminilte/cmhw
