@@ -40,6 +40,9 @@ on init
    chmod 0664 /sys/class/power_supply/battery/batt_temp_table
    chown system radio /sys/class/power_supply/battery/batt_temp_table
 
+# Preload the BoringSSL wrapper
+   export LD_PRELOAD "/system/lib/libboringssl-compat.so"
+
 #Private Mode
     mkdir /mnt/shell/privatemode 0700 system system
     mkdir /storage/Private 0000 system system
