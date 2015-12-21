@@ -62,6 +62,10 @@ KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 # Rom Toolchain
 TARGET_GCC_VERSION_EXP := 5.2-uber
 
+# Sound
+# Lollipop Audio HAL is incompatible with Android M (see http://review.cyanogenmod.org/#/c/121831/)
+TARGET_TINY_ALSA_IGNORE_SILENCE_SIZE := true
+
 # CMHW
 BOARD_HARDWARE_CLASS := device/samsung/kminilte/cmhw
 
