@@ -53,7 +53,7 @@ TARGET_SPECIFIC_HEADER_PATH += device/samsung/kminilte/include
 # Kernel
 TARGET_KERNEL_CONFIG := kminilte_00_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/kminilte
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := enforcing=0 androidboot.selinux=permissive
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9-uber/bin
 KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 #KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-linux-androideabi-4.9-sm/bin
@@ -92,6 +92,8 @@ TARGET_PROVIDES_LIBLIGHT := true
 BOARD_EGL_NEEDS_HANDLE_VALUE := true
 
 # SELinux
+-include device/qcom/sepolicy/sepolicy.mk
+
 BOARD_SEPOLICY_DIRS += \
    device/samsung/kminilte/sepolicy
 
