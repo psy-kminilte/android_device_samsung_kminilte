@@ -53,14 +53,17 @@ TARGET_SPECIFIC_HEADER_PATH += device/samsung/kminilte/include
 # Kernel
 TARGET_KERNEL_CONFIG := kminilte_00_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/kminilte
-BOARD_KERNEL_CMDLINE := enforcing=0 androidboot.selinux=permissive
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9-uber/bin
-KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
+BOARD_KERNEL_CMDLINE := enforcing=0 androidboot.selinux=disabled
+#KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9-uber/bin
+#KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
+#KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
+#ERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-linux-androideabi-4.9/bin
 #KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-linux-androideabi-4.9-sm/bin
-#KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
+KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
+#KERNEL_TOOLCHAIN_PREFIX := arm-linux-gnueabi-
 
 # Rom Toolchain
-TARGET_GCC_VERSION_EXP := 5.2-uber
+#TARGET_GCC_VERSION_EXP := 5.2-uber
 
 # Sound
 # Lollipop Audio HAL is incompatible with Android M (see http://review.cyanogenmod.org/#/c/121831/)
