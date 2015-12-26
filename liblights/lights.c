@@ -33,6 +33,8 @@
  * See: /drivers/leds/leds-ktd2026.c (ktd2026_start_led_pattern)
  */
 
+#define UNUSED __attribute__((unused))
+
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 
@@ -143,7 +145,7 @@ static int is_lit(struct light_state_t const* state)
     return state->color & 0x00ffffff;
 }
 
-static int set_light_backlight(struct light_device_t *dev,
+static int set_light_backlight(UNUSED struct light_device_t *dev,
             struct light_state_t const *state)
 {
     int err = 0;
@@ -157,7 +159,7 @@ static int set_light_backlight(struct light_device_t *dev,
 }
 
 static int
-set_light_buttons(struct light_device_t* dev,
+set_light_buttons(UNUSED struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int err = 0;
@@ -278,7 +280,7 @@ switched:
     return err;
 }
 
-static int set_light_leds_battery(struct light_device_t *dev,
+static int set_light_leds_battery(UNUSED struct light_device_t *dev,
             struct light_state_t const *state)
 {
     return set_light_leds(state, 0);
@@ -290,7 +292,7 @@ static int set_light_leds_notifications(struct light_device_t *dev,
     return set_light_leds(state, 1);
 }
 
-static int set_light_leds_attention(struct light_device_t *dev,
+static int set_light_leds_attention(UNUSED struct light_device_t *dev,
             struct light_state_t const *state)
 {
     struct light_state_t fixed;
