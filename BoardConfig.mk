@@ -98,9 +98,6 @@ BOARD_EGL_NEEDS_HANDLE_VALUE := true
 
 BOARD_SEPOLICY_DIRS += \
    device/samsung/kminilte/sepolicy
-
-# Partitions
-TARGET_USERIMAGES_USE_F2FS := true
  
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
