@@ -44,16 +44,18 @@ ro.adb.secure=0	\
 ro.secure=0	\
 persist.sys.root_access=3	\
 ro.allow.mock.location=0	\
-ro.debuggable=1	\
-persist.sys.usb.config=mtp,adb
+ro.debuggable=1	
+#\
+#persist.sys.usb.config=mtp,adb
 
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 # Camera
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
 #    libion_exynos
+    Snap
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
@@ -117,7 +119,7 @@ PRODUCT_PACKAGES += \
     AriesParts \
     DockAudio
 
-PRODUCT_PROPERTY_OVERRIDES += \
+#PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
 
 # Dalvik VM specific for devices with 2048 MB of RAM (G800F has 1.5G, but 2G config seems to fit)

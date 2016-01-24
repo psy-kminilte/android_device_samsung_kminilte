@@ -112,5 +112,5 @@ TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 
 # Art
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    dalvik.vm.dex2oat-swap=false
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-swap=false
