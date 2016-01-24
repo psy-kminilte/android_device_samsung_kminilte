@@ -53,9 +53,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 # Camera
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
 #    libion_exynos
-    Snap
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
