@@ -1,3 +1,8 @@
+
+# Camera
+PRODUCT_PACKAGES += \
+    Snap
+
 # Notifications
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilt/system/media/audio/notifications/0-Dexter_Sms_Qsy.ogg:system/media/audio/notifications/0-Dexter_Sms_Qsy.ogg \
