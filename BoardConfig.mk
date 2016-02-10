@@ -62,7 +62,7 @@ KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 #KERNEL_TOOLCHAIN_PREFIX := arm-linux-androideabi-
 
 # Rom Toolchain
-TARGET_GCC_VERSION_EXP := 5.2-uber
+TARGET_GCC_VERSION_EXP := 4.9
 
 # Sound
 # Lollipop Audio HAL is incompatible with Android M (see http://review.cyanogenmod.org/#/c/121831/)
