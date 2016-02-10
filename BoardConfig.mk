@@ -51,7 +51,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 12833521664
 TARGET_SPECIFIC_HEADER_PATH += device/samsung/kminilte/include
 
 # Kernel
-TARGET_KERNEL_CONFIG := kminilte_00_defconfig
+TARGET_KERNEL_CONFIG := xyref5260_evt0_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/kminilte
 BOARD_KERNEL_CMDLINE := enforcing=0 androidboot.selinux=disabled
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9-uber/bin
@@ -90,6 +90,9 @@ TARGET_POWERHAL_VARIANT := exynos3
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Sensors
+TARGET_PROVIDES_LIBSENSORS := true
+
 # GUI
 BOARD_EGL_NEEDS_HANDLE_VALUE := true
 
@@ -111,6 +114,7 @@ TARGET_EXYNOS3_AUDIO_FROM_SOURCE := false
 DEVICE_RESOLUTION := 720x1280
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_REAL_SDCARD := true
+TW_NO_SCREEN_BLANK := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 
