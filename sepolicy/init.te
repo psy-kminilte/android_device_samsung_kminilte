@@ -1,2 +1,0 @@
-allow init drmserver_service:service_manager add;
-allow init sysfs_sec:lnk_file r_file_perms;
