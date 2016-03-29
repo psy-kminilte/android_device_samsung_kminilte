@@ -99,6 +99,10 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_CRYPTO := true
 
+# SELinux
+BOARD_SEPOLICY_DIRS := \
+	device/samsung/kminilte/sepolicy
+
 # Art
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-swap=false
