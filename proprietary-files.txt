@@ -53,7 +53,7 @@ lib/libExynosIPService.so
 #lib/libcsc.so
 
 # HWC
-vendor/hw/hwcomposer.exynos3.so
+lib/hw/hwcomposer.exynos3.so
 lib/hw/gralloc.exynos3.so
 # Needed by hwcomposer.exynos3.so
 lib/libdisplay.so
@@ -106,9 +106,6 @@ lib/hw/nfc_nci.universal3470.so
 etc/sec_s3fwrn5_rfreg.bin
 vendor/firmware/sec_s3fwrn5_firmware.bin
 
-# Boot script (handles deferred kernels init-calls, e.g. for Wifi driver startup)
-etc/init.sec.boot.sh
-
 # MobiCore
 bin/mcDriverDaemon
 app/FFFFFFFF000000000000000000000001.drbin
@@ -138,15 +135,8 @@ lib/libMcClient.so
 lib/libMcRegistry.so
 
 # OMX
-etc/ExynosOMXReg.conf
-lib/libExynosOMX263d.so
-lib/libExynosOMX264d.so
-lib/libExynosOMXCmn.so
 lib/libExynosOMX_Core.so
-lib/libExynosOMXCore.so
-lib/libExynosOMXMp4vd.so
 lib/libExynosOMX_Resourcemanager.so
-lib/libExynosOMXVc1d.so
 lib/libstagefrighthw.so
 lib/omx/libOMX.Exynos.AVC.Decoder.so
 lib/omx/libOMX.Exynos.AVC.Encoder.so
@@ -184,8 +174,8 @@ lib/libsamsungRecord_ns.so
 lib/libsamsungRecord_zoom.so
 lib/libsamsungSoundbooster.so
 lib/lib_DNSe_NRSS_ver226.so
-lib/lib_SamsungRec_V04003.so
-lib/lib_Samsung_AudioZoom_v100.so
+lib/lib_SamsungRec_V04004.so
+lib/lib_Samsung_AudioZoom_v102.so
 lib/lib_Samsung_Resampler.so
 lib/lib_Samsung_SB_AM_for_ICS_v04004.so
 
