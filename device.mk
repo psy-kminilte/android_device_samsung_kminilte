@@ -80,8 +80,9 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd \
-    fingerprint.universal3470 \
-    ValidityService
+    fingerprint.universal3470
+    
+#ValidityService
 
 # Media config
 PRODUCT_COPY_FILES += \
