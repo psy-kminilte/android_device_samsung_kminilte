@@ -31,7 +31,7 @@ const char CameraParameters::EFFECT_VINTAGE_COLD[] = "vintage-cold";\
 const char CameraParameters::EFFECT_VINTAGE_WARM[] = "vintage-warm";\
 const char CameraParameters::EFFECT_WASHED[] = "washed";\
 const char CameraParameters::PIXEL_FORMAT_YUV420SP_NV21[] = "yuv420sp";\
-int CameraParameters::getInt64(const char *key) const { return -1; }
+//int CameraParameters::getInt64(const char *key) const { return -1; }
 
 #define CAMERA_PARAMETERS_EXTRA_H \
     static const char ISO_AUTO[];\
