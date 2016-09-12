@@ -28,10 +28,9 @@
  */
 
 #include <stdlib.h>
-#include <unistd.h>
 
 #include "vendor_init.h"
-#include <cutils/properties.h>
+#include "property_service.h"
 #include "log.h"
 #include "util.h"
 
@@ -41,11 +40,11 @@ void vendor_load_properties()
     std::string bootloader;
     std::string device;
 
-    rc = property_get("ro.board.platform", platform, NULL);
-    if (!rc || strncmp(platform, ANDROID_TARGET, PROP_VALUE_MAX))
+    platform = property_get("ro.board.platform");
+    if (platform != ANDROID_TARGET)
         return;
 
-    property_get("ro.bootloader", bootloader, NULL);
+    bootloader = property_get("ro.bootloader");
 
     if (bootloader == "G800F") {
         /* kminiltexx */
@@ -67,6 +66,6 @@ void vendor_load_properties()
         property_set("ro.product.device", "kminilteub");
     }
     
-    property_get("ro.product.device", device, NULL);
-    ERROR("Found bootloader id %s setting build properties for %s device\n", bootloader, device);
+    device = property_get("ro.product.device");
+    ERROR("Found bootloader id %s setting build properties for %s device\n", bootloader.c_str(), device.c_str());
 }
