@@ -2,6 +2,10 @@
 # system.prop for kminilte
 #
 
+persist.service.adb.enable=1                                                    
+persist.service.debuggable=1
+persist.sys.usb.config=mtp,adb
+
 ro.sf.lcd_density=320
 persist.hdmi.hdcp_enabled=0
 persist.demo.hdmirotationlock=0
