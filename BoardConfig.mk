@@ -56,7 +56,7 @@ KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 TARGET_GCC_VERSION_EXP := 4.9
 
 # CMHW
-#BOARD_HARDWARE_CLASS := device/samsung/kminilte/cmhw
+BOARD_HARDWARE_CLASS := device/samsung/kminilte/cmhw
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/kminilte/bluetooth
@@ -99,10 +99,10 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_CRYPTO := true
 
-# SELinux
-#BOARD_SEPOLICY_DIRS := \
-#	device/samsung/kminilte/sepolicy
-
 # Art
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-swap=false
+
+# SELinux
+BOARD_SEPOLICY_DIRS := \
+	device/samsung/kminilte/sepolicy
