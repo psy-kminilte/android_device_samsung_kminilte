@@ -12,6 +12,7 @@ on init
     symlink /dev/block/mmcblk0p13 /dev/mbin0
     restorecon /dev/mbin0
     symlink  /sys/devices/12110000.usb/ehci_power /dev/ehci_power
+    symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
 
  # permission for CHARGING
    chown system radio /sys/class/power_supply/battery/batt_reset_soc
