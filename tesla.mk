@@ -12,5 +12,7 @@ PRODUCT_NAME := tesla_kminilte
 PRODUCT_BRAND := Samsung
 PRODUCT_MODEL := SM-G800
 
+DISABLE_SLIM_FRAMEWORK := true
+
 # custom
 -include $(LOCAL_PATH)/custom.mk
