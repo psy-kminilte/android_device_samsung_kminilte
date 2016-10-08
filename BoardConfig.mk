@@ -100,8 +100,8 @@ TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_CRYPTO := true
 
 # Art
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat-swap=false
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    dalvik.vm.dex2oat-swap=false
 
 # Legacy Blobs
 TARGET_NEEDS_TEXT_RELOCATIONS := true

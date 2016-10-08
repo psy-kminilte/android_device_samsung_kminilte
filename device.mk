@@ -127,7 +127,7 @@ PRODUCT_PACKAGES += \
 
 #PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
-    
+
 # Wifi
 PRODUCT_PACKAGES += \
     wifiloader
