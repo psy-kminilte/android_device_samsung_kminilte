@@ -103,9 +103,6 @@ TW_INCLUDE_CRYPTO := true
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    dalvik.vm.dex2oat-swap=false
 
-# Legacy Blobs
-TARGET_NEEDS_TEXT_RELOCATIONS := true
-
 # SELinux
 BOARD_SEPOLICY_DIRS := \
 	device/samsung/kminilte/sepolicy
