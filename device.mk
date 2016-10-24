@@ -128,6 +128,10 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
 
+# Telephony-ext
+PRODUCT_PACKAGES += telephony-ext ims-ext-common
+PRODUCT_BOOT_JARS += telephony-ext
+
 # Wifi
 PRODUCT_PACKAGES += \
     wifiloader
