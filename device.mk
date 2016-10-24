@@ -56,6 +56,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #PRODUCT_PACKAGES += \
 #    libion_exynos
 
+# Snap Config
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.cpp.duplication=false
+
+
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
