@@ -106,3 +106,10 @@ TW_INCLUDE_CRYPTO := true
 # SELinux
 BOARD_SEPOLICY_DIRS := \
 	device/samsung/kminilte/sepolicy
+
+# Disable dex-preoptimization
+WITH_DEXPREOPT := false
+
+# Disable dex-preoptimization of prebuilts to save space.
+DONT_DEXPREOPT_PREBUILTS := true
+
