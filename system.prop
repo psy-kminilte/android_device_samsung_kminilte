@@ -24,3 +24,10 @@ persist.radio.add_power_save=1
 
 ro.nfc.sec_hal=true
 
+# kminilte Hardware Info
+ro.device.chipset=Samsung Exynos 3 Quad 3470
+ro.device.cpu=ARM Cortex-A7, 1400 MHz, 4 Cores
+ro.device.gpu=ARM Mali-400 MP4, 450 MHz, 4 Cores
+ro.device.rear_cam=8 MP
+ro.device.front_cam=2.1 MP
+ro.device.screen_res=720x1280 pixels (~326 ppi)
