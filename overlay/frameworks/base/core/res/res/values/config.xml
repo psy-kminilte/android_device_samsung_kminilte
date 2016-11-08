@@ -113,8 +113,8 @@
     <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors >
     <bool name="config_multiColorBatteryLed">true</bool-->
 
-    <!-- Bool whether to show Hardware keys settings in TeslaCoil -->
-    <bool name="config_showHwKeys">true</bool>
+    <!-- Bool whether to show Hardware keys settings in TeslaCoil >
+    <bool name="config_showHwKeys">true</bool-->
 
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -177,8 +177,8 @@
             5 - In-app Search
          This needs to match the constants in
          policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
-    -->
-    <integer name="config_longPressOnMenuBehavior">2</integer>
+    >
+    <integer name="config_longPressOnMenuBehavior">2</integer-->
 
     <!-- Control the behavior when the user double-taps the home button.
             0 - Nothing
