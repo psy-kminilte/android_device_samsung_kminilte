@@ -22,6 +22,9 @@ persist.radio.add_power_save=1
 # Uncomment the following line to enable Bluetooth A2DP sink
 #persist.service.bt.a2dp.sink=true
 
+# Storage
+#ro.sys.sdcardfs=true
+
 ro.nfc.sec_hal=true
 
 # kminilte Hardware Info
