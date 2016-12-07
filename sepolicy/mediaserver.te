@@ -11,3 +11,4 @@ r_dir_file(mediaserver, efs_file)
 
 # needed for widevine classic
 allow mediaserver tee_device:chr_file { ioctl open read write };
+allow mediaserver camera_data_file:dir search;
