@@ -44,7 +44,7 @@ TARGET_SPECIFIC_HEADER_PATH += device/samsung/kminilte/include
 # Kernel
 TARGET_KERNEL_CONFIG := xyref5260_evt0_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/kminilte
-#BOARD_KERNEL_CMDLINE := enforcing=0 androidboot.selinux=disabled
+BOARD_KERNEL_CMDLINE := enforcing=0 androidboot.selinux=disabled
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9-uber/bin
 #KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
 KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
