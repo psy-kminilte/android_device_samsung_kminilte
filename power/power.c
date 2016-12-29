@@ -36,14 +36,14 @@ static void sysfs_write(char *path, char *s) {
 
     if (fd < 0) {
         strerror_r(errno, buf, sizeof(buf));
-        ALOGE("Error opening %s: %s\n", path, buf);
+        //ALOGE("Error opening %s: %s\n", path, buf);
         return;
     }
 
     len = write(fd, s, strlen(s));
     if (len < 0) {
         strerror_r(errno, buf, sizeof(buf));
-        ALOGE("Error writing to %s: %s\n", path, buf);
+        //ALOGE("Error writing to %s: %s\n", path, buf);
     }
 
     close(fd);
@@ -55,7 +55,7 @@ static void power_init(struct power_module *module)
 
 static void power_set_interactive(struct power_module *module, int on)
 {
-    ALOGD("%s: %s input devices", __func__, on ? "enabling" : "disabling");
+    //ALOGD("%s: %s input devices", __func__, on ? "enabling" : "disabling");
     sysfs_write(TOUCHSCREEN_POWER, on ? "1" : "0");
     sysfs_write(TOUCHKEY_POWER, on ? "1" : "0");
     sysfs_write(BATT_LCD_POWER, on ? "1" : "0");
