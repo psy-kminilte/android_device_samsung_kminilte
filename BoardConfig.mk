@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 12833521664
 TARGET_SPECIFIC_HEADER_PATH += device/samsung/kminilte/include
 
 # Kernel
-TARGET_KERNEL_CONFIG := xyref5260_evt0_defconfig
+TARGET_KERNEL_CONFIG := kminilte_00_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/kminilte
 #BOARD_KERNEL_CMDLINE := enforcing=0 androidboot.selinux=disabled
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9-uber/bin
@@ -98,6 +98,8 @@ TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_CRYPTO := true
+#TW_USE_TOOLBOX := true
+TWRP_INCLUDE_LOGCAT := true
 
 # Art
 #PRODUCT_PROPERTY_OVERRIDES += \
