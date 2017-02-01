@@ -43,8 +43,8 @@ void vendor_load_properties()
     std::string bootloader = property_get("ro.bootloader");
     if (bootloader.find("G800F") == 0) {
         /* kminiltexx */
-        property_set("ro.build.fingerprint", "samsung/kminiltexx/kminilte:5.1.1/LMY47X/G800FXXU1BOL4:user/release-keys");
-        property_set("ro.build.description", "kminiltexx-user 5.1.1 LMY47X G800FXXU1BOL4 release-keys");
+        property_set("ro.build.fingerprint", "samsung/kminiltexx/kminilte:7.1.1/LMY47X/G800FXXU1CPK5:user/release-keys");
+        property_set("ro.build.description", "kminiltexx-user 7.1.1 LMY47X G800FXXU1CPK5 release-keys");
         property_set("ro.product.model", "SM-G800F");
         property_set("ro.product.device", "kminiltexx");
     } else if (bootloader.find("G800Y") == 0) {
