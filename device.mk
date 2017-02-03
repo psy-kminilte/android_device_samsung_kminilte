@@ -48,16 +48,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
-# Set correct voice call audio property values
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.vc_call_vol_steps=6 \
-    persist.audio.dualmic.config=endfire \
-    ro.qc.sdk.audio.fluencetype=fluence \
-    persist.audio.fluence.voicecall=true \
-    persist.audio.fluence.voicecomm=false \
-    persist.audio.fluence.voicerec=false \
-    persist.audio.fluence.speaker=false
-
 # Camera
 #PRODUCT_PACKAGES += \
 #    libion_exynos
