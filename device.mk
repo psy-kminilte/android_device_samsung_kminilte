@@ -71,12 +71,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false
 
-
-# IPv6 tethering
-PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes
-
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
