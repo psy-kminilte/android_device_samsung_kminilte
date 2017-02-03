@@ -115,4 +115,3 @@ WITH_DEXPREOPT := false
 # Disable dex-preoptimization of prebuilts to save space.
 DONT_DEXPREOPT_PREBUILTS := true
 
-BOARD_SUPPORTS_SOUND_TRIGGER := true
