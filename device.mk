@@ -155,10 +155,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     wifiloader
 
-# Store correct IMSI when retreived from SIMRecords and use it for RuimRecords
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.get_imsi_from_sim=true
-
 # Dalvik VM specific for devices with 2048 MB of RAM (G800F has 1.5G, but 2G config seems to fit)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
