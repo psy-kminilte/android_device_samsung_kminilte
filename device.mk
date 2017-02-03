@@ -153,7 +153,7 @@ PRODUCT_PACKAGES += \
     AriesParts \
     DockAudio
 
-#PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
 
 # Wifi
