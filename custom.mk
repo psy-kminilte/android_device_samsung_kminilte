@@ -1,7 +1,7 @@
 
 # Camera
-PRODUCT_PACKAGES += \
-    Snap
+#PRODUCT_PACKAGES += \
+#    Snap
 
 # Notifications
 PRODUCT_COPY_FILES += \
