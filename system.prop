@@ -36,5 +36,12 @@ ro.device.rear_cam=8 MP
 ro.device.front_cam=2.1 MP
 ro.device.screen_res=720x1280 pixels (~326 ppi)
 
+# IMS
+#persist.radio.jbims=1
+#persist.radio.ROTATION_ENABLE=1
+#persist.radio.VT_ENABLE=1
+#persist.radio.VT_HYBRID_ENABLE=1
+#persist.radio.VT_USE_MDM_TIME=0
+
 # Google assistant
 ro.opa.eligible_device=true
