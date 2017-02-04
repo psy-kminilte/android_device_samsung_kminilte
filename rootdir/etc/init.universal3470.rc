@@ -96,12 +96,24 @@ on post-fs-data
     mkdir /data/app/mcRegistry/TbStorage 0700 system system
     mkdir /efs/TEE  0770 radio system
 
-on early-boot
     # Remove symlinks to avoid issues with migrate after nandroid restores
     # Will be recreated at end of boot
+    # Normal path
+    rm /data/data/com.android.providers.telephony/databases
+    rm /data/data/com.android.providers.telephony/shared_prefs
+
+    # COMPAT: Handle upgrade from previous implementation of this idea. If the
+    # above could not be unlinked then we have the old symlinked files
+    # scenario. Clean that up.
     rm /data/data/com.android.providers.telephony/databases/telephony.db
     rm /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
+    rmdir /data/data/com.android.providers.telephony/databases
+    rmdir /data/data/com.android.providers.telephony/shared_prefs
 
+on property:sys.boot_completed=1
+    # Symlink directories to access telephony.db and preferred-apn.xml required by cbd
+    symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
+    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
 
 on boot
     # Set up kernel tracing, but disable it by default
@@ -442,13 +454,6 @@ service scranton_RD /system/bin/scranton_RD
      disabled
      oneshot
 
-on property:sys.boot_completed=1
-    # Symlink telephony.db and preferred-apn.xml
-    mkdir /data/data/com.android.providers.telephony/databases 0700 radio radio
-    mkdir /data/data/com.android.providers.telephony/shared_prefs 0700 radio radio
-    symlink /data/user_de/0/com.android.providers.telephony/databases/telephony.db /data/data/com.android.providers.telephony/databases/telephony.db
-    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs/preferred-apn.xml /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
- 
 # start for TZPR provisioning version check app
 on property:sys.mobicoredaemon.enable=true
     start scranton_RD
@@ -544,21 +549,19 @@ service TvoutService_C /system/bin/bintvoutservice
      group graphics
 on property:ro.tvout.enable=false
     stop TvoutService_C
-# LPM
-on property:ro.bootmode=charger
-    mount ext4 /dev/block/mmcblk0p18 /system wait ro
 
-on property:ro.bootmode=charger
+# LPM
+on charger
+    mount ext4 /dev/block/mmcblk0p18 /system wait ro
 	wait /dev/block/platform/dw_mmc.0/by-name/EFS
     check_fs /dev/block/platform/dw_mmc.0/by-name/EFS ext4
     mount ext4 /dev/block/platform/dw_mmc.0/by-name/EFS /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit
-
-on property:ro.bootmode=charger
     class_start sec-charger
 
 service lpm /system/bin/lpm
     class sec-charger
     critical
+    seclabel u:r:healthd:s0
 
 # Secure Storage startup
 service secure_storage /system/bin/secure_storage_daemon
