@@ -110,8 +110,11 @@ BOARD_SEPOLICY_DIRS := \
 	device/samsung/kminilte/sepolicy
 
 # Disable dex-preoptimization
-WITH_DEXPREOPT := false
+#WITH_DEXPREOPT := false
 
 # Disable dex-preoptimization of prebuilts to save space.
-DONT_DEXPREOPT_PREBUILTS := true
+#DONT_DEXPREOPT_PREBUILTS := true
 
+#Enable WITH_DEXPREOPT_BOOT_IMG_ONLY
+#This increases the initial boot time by ~2 mins, but saves space
+#WITH_DEXPREOPT_BOOT_IMG_ONLY := true
