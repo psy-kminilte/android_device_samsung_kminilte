@@ -27,6 +27,7 @@ persist.radio.add_power_save=1
 #ro.sys.sdcardfs=true
 
 ro.nfc.sec_hal=true
+persist.radio.flexmap_type=dds
 
 # kminilte Hardware Info
 ro.device.chipset=Samsung Exynos 3 Quad 3470
