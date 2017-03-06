@@ -98,16 +98,17 @@ on post-fs-data
 
     # Remove symlinks to avoid issues with migrate after nandroid restores
     # Will be recreated at end of boot
-    rm -r -d /data/data/com.android.providers.telephony/databases
-    rm -r -d /data/data/com.android.providers.telephony/shared_prefs
+    # Normal path
+    rm /data/data/com.android.providers.telephony/databases
+    rm /data/data/com.android.providers.telephony/shared_prefs
 
-    # Symlink directories to access telephony.db and preferred-apn.xml required by cbd
-    symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
-    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
-
-    # Start services that need symlinked com.android.providers.telephony directories
-    start cpboot-daemon
-    start ril-daemon
+    # COMPAT: Handle upgrade from previous implementation of this idea. If the
+    # above could not be unlinked then we have the old symlinked files
+    # scenario. Clean that up.
+    rm /data/data/com.android.providers.telephony/databases/telephony.db
+    rm /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
+    rmdir /data/data/com.android.providers.telephony/databases
+    rmdir /data/data/com.android.providers.telephony/shared_prefs
 
 on property:sys.boot_completed=1
     # Configure the CPU governor
@@ -137,6 +138,10 @@ on property:sys.boot_completed=1
     chmod 664 /sys/devices/system/cpu/cpu1/online
     chmod 664 /sys/devices/system/cpu/cpu2/online
     chmod 664 /sys/devices/system/cpu/cpu3/online
+
+    # Symlink directories to access telephony.db and preferred-apn.xml required by cbd
+    symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
+    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
 
 on boot
     # Set up kernel tracing, but disable it by default
@@ -172,7 +177,7 @@ on boot
 
     # enable call recording
     chmod 0660 /dev/snd/pcmC0D0c
-    
+
 # SSWAP
     write /proc/sys/vm/swappiness 130
 
@@ -254,17 +259,17 @@ on fs
     mount_all /fstab.universal3470
     setprop ro.crypto.fuse_sdcard true
 
-#For Absolute Persistence Partition 
-    mkdir /persdata 0755 system system 
-    mkdir /persdata/absolute 0750 system system 
-      
-    wait /dev/block/platform/dw_mmc.0/by-name/PERSDATA 
-    check_fs /dev/block/platform/dw_mmc.0/by-name/PERSDATA ext4 
-    mount ext4 /dev/block/platform/dw_mmc.0/by-name/PERSDATA /persdata/absolute nosuid nodev barrier=1 
-      
-    chown system system /persdata 
-    chmod 0755 /persdata 
-    chown system system /persdata/absolute 
+#For Absolute Persistence Partition
+    mkdir /persdata 0755 system system
+    mkdir /persdata/absolute 0750 system system
+
+    wait /dev/block/platform/dw_mmc.0/by-name/PERSDATA
+    check_fs /dev/block/platform/dw_mmc.0/by-name/PERSDATA ext4
+    mount ext4 /dev/block/platform/dw_mmc.0/by-name/PERSDATA /persdata/absolute nosuid nodev barrier=1
+
+    chown system system /persdata
+    chmod 0755 /persdata
+    chown system system /persdata/absolute
     chmod 0750 /persdata/absolute
 
 # Support Preload install apks
@@ -469,7 +474,7 @@ service prepare_param /system/bin/prepare_param.sh /dev/block/platform/dw_mmc.0/
     group root
     seclabel u:r:prepare_param:s0
     oneshot
-    
+
 # service for TZPR provisioning version check app
 service scranton_RD /system/bin/scranton_RD
      class main
@@ -480,7 +485,7 @@ service scranton_RD /system/bin/scranton_RD
 # start for TZPR provisioning version check app
 on property:sys.mobicoredaemon.enable=true
     start scranton_RD
-    
+
 # MobiCore startup
 service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF000000000000000000000001.drbin -r /system/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin
     class core
@@ -509,7 +514,6 @@ service cpboot-daemon /sbin/cbd -d -t ss222 -b m -m m
     class main
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw log shell
-    disabled
     seclabel u:r:cpboot-daemon:s0
 
 on property:persist.sys.cpboot=disable
@@ -524,7 +528,7 @@ service cs_service /system/bin/cs
     disabled
 
 # RIL
-service_redefine ril-daemon /system/bin/rild
+service ril-daemon /system/bin/rild
     class main
     socket rild stream 660 root radio
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
@@ -532,7 +536,6 @@ service_redefine ril-daemon /system/bin/rild
     socket rild-cas stream 660  casdrm mmb
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw log vpn system
-    disabled
     onrestart restart cpboot-daemon
 
 # AT Distributor for factory test
@@ -575,17 +578,8 @@ service TvoutService_C /system/bin/bintvoutservice
 on property:ro.tvout.enable=false
     stop TvoutService_C
 
-# LPM
-on charger
-    mount ext4 /dev/block/mmcblk0p18 /system wait ro
-	wait /dev/block/platform/dw_mmc.0/by-name/EFS
-    check_fs /dev/block/platform/dw_mmc.0/by-name/EFS ext4
-    mount ext4 /dev/block/platform/dw_mmc.0/by-name/EFS /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit
-    class_start sec-charger
-
-service lpm /system/bin/lpm
-    class sec-charger
-    critical
+service charger /charger
+    class charger
     seclabel u:r:healthd:s0
 
 # Secure Storage startup
