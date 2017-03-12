@@ -528,7 +528,7 @@ service cs_service /system/bin/cs
     disabled
 
 # RIL
-service ril-daemon /system/bin/rild
+service_redefine ril-daemon /system/bin/rild
     class main
     socket rild stream 660 root radio
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
