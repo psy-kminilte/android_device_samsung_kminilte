@@ -2,6 +2,11 @@
 # system.prop for kminilte
 #
 
+# Set build type
+#ro.build.type=user
+#ro.build.tags=release-keys
+#ro.build.flavor=validus_kminilte-user
+
 persist.service.adb.enable=1                                                    
 persist.service.debuggable=1
 persist.sys.usb.config=mtp,adb
